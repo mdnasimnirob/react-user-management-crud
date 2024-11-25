@@ -23,14 +23,20 @@ function App() {
     fetch('http://localhost:5000/users', {
       method: 'post',
       headers: {
-        'content-type': 'aplication/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(user),
 
     })
       .then(res => res.json())
       .then(data => {
-        console.log('inside post response', data)
+        console.log(data);
+        if (data.insertedId) {
+          alert('user added successfully')
+        }
+        const newUser = [...users, data];
+        setUsers(newUser);
+        form.reset();
       })
 
   }
@@ -48,7 +54,10 @@ function App() {
       </form>
 
       <h3>user length : {users.length}</h3>
-      {users.map(user => <p key={user.id}> {user.id} . {user.name} : {user.email}</p>)}
+      <div>
+        {users.map(user => <p key={user._id}> {user.name} : {user.email} {user._id}  <button>x</button></p>)}
+
+      </div>
 
     </>
   )
