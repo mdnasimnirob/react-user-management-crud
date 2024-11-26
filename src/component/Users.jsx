@@ -27,6 +27,9 @@ const Users = () => {
 
     return (
         <div>
+
+            <Link to='/'><button>Add User</button></Link>
+
             {
                 users.map(user => <p key={user._id}> {user.name} : {user.email} {user._id}
                     <Link to={`/update/${user._id}`}>

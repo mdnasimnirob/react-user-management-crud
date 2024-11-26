@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import './App.css'
+import { Link } from 'react-router-dom';
 
 function App() {
 
@@ -30,12 +31,12 @@ function App() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        setUsers(newUser);
         if (data.insertedId) {
           alert('user added successfully')
         }
+        console.log(data);
         const newUser = [...users, data];
-        setUsers(newUser);
         form.reset();
       })
 
@@ -46,18 +47,18 @@ function App() {
 
       <h1>user management</h1>
       <form onSubmit={handleAddUser}>
-        <input type="text" name="name" />
+        <input type="text" name="name" id="" />
         <br />
         <input type="email" name="email" id="" />
         <br />
         <input type="submit" value="user add" />
       </form>
 
-      <h3>user length : {users.length}</h3>
-      <div>
-        {users.map(user => <p key={user._id}> {user.name} : {user.email} {user._id}  <button>x</button></p>)}
 
-      </div>
+
+      <h3>user length : {users.length}</h3>
+      <Link to='/users'> <button>All Users</button> </Link>
+
 
     </>
   )
