@@ -28,10 +28,10 @@ const Users = () => {
     return (
         <div>
 
-            <Link to='/'><button>Add User</button></Link>
+            <Link to='/'><button className="text-3xl font-bold underline">Add User</button></Link>
 
             {
-                users.map(user => <p key={user._id}> {user.name} : {user.email} {user._id}
+                users.map(user => <p key={user._id}> {user.name}  {user.email} {user._id}
                     <Link to={`/update/${user._id}`}>
                         <button>Update</button>
                     </Link>
