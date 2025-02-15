@@ -31,13 +31,19 @@ const Update = () => {
     }
 
     return (
-        <div>
-            <h3>Update data of {singleUser.name}</h3>
-            <form onSubmit={handleUpdate}>
-                <input type="text" name="name" defaultValue={singleUser.name} id="" /> <br />
-                <input type="email" name="email" defaultValue={singleUser.email} id="" /><br />
-                <input type="submit" value="update" />
-            </form>
+        <div className="">
+            <div className="">
+                <div>
+                    <h3>Update data of {singleUser.name}</h3>
+                </div>
+                <div>
+                    <form onSubmit={handleUpdate}>
+                        <input type="text" name="name" defaultValue={singleUser.name} id="" /> <br />
+                        <input type="email" name="email" defaultValue={singleUser.email} id="" /><br />
+                        <input type="submit" value="update" />
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };
